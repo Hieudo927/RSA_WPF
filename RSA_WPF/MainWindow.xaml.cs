@@ -127,9 +127,9 @@ namespace RSA_WPF
                     MessageBox.Show("File đã được mã hóa thành công", "Thông báo");
                 }
             }
-            catch 
+            catch (Exception ex)
             {
-                MessageBox.Show("Chưa chọn file cần mã hóa", "Thông báo");
+                MessageBox.Show("Đã xảy ra lỗi: " + ex.Message);
             }
         }
 
@@ -203,38 +203,15 @@ namespace RSA_WPF
                 byte[] encryptedData = File.ReadAllBytes(filePath);
 
                 // Tạo đối tượng RSA từ khóa bí mật
-                RSACryptoServiceProvider rsa = new RSACryptoServiceProvider();
+                //RSACryptoServiceProvider rsa = new RSACryptoServiceProvider();
                 rsa.FromXmlString(File.ReadAllText(privateKeyPath));
 
                 // Giải mã khóa đối xứng sử dụng RSA
-                byte[] symmetricKey = rsa.Decrypt(encryptedData, false);
+                byte[] decryptData = rsa.Decrypt(encryptedData, false);
 
-                //// Giải mã dữ liệu với khóa đối xứng
-                //byte[] encryptedPayload = new byte[encryptedData.Length - rsa.KeySize / 8];
-                //Array.Copy(encryptedData, rsa.KeySize / 8, encryptedPayload, 0, encryptedPayload.Length);
-
-                //byte[] decryptedPayload;
-                //using (Aes aes = Aes.Create())
-                //{
-                //    aes.Key = symmetricKey;
-                //    aes.Mode = CipherMode.CBC;
-                //    aes.Padding = PaddingMode.PKCS7;
-                //    byte[] iv = new byte[aes.BlockSize / 8];
-                //    Array.Copy(encryptedData, 0, iv, 0, iv.Length);
-                //    aes.IV = iv;
-
-                //    using (MemoryStream ms = new MemoryStream())
-                //    {
-                //        using (CryptoStream cs = new CryptoStream(ms, aes.CreateDecryptor(), CryptoStreamMode.Write))
-                //        {
-                //            cs.Write(encryptedPayload, 0, encryptedPayload.Length);
-                //        }
-                //        decryptedPayload = ms.ToArray();
-                //    }
-                //}
-
+                
                 // Ghi dữ liệu đã giải mã vào file
-                File.WriteAllBytes(filePath, symmetricKey);
+                File.WriteAllBytes(filePath, decryptData);
                 string content = File.ReadAllText(filePath);
                 txtResult.Text = content;
                 MessageBox.Show("File đã được giải mã thành công.");
