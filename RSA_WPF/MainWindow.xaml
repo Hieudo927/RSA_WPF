@@ -6,23 +6,25 @@
         xmlns:local="clr-namespace:RSA_WPF"
         mc:Ignorable="d"
         Background="LightBlue"
-        Title="RSA" Height="646" Width="902">
+        Title="RSA" Height="662" Width="836">
 
     <Grid>
-        <Button Name="btnEncrypt" Content="Encrypt" HorizontalAlignment="Left" Margin="656,225,0,0" VerticalAlignment="Top" Height="36" Width="81" RenderTransformOrigin="0.396,-0.143" Click="btnEncrypt_Click" FontWeight="Bold"/>
-        <Button Content="Decrypt" HorizontalAlignment="Left" Margin="656,302,0,0" VerticalAlignment="Top" Height="36" Width="81" FontWeight="Bold"/>
-        <Button Name="bntGenerateKey" Content="Generate Key" HorizontalAlignment="Left" Margin="640,463,0,0" VerticalAlignment="Top" Height="40" Width="147" Click="bntGenerateKey_Click" FontWeight="Bold"/>
-        <Button Name="btnOpenFile" Content="Open" HorizontalAlignment="Left" Margin="656,73,0,0" VerticalAlignment="Top" Height="36" Width="80" Click="btnOpenFile_Click" FontWeight="Bold"/>
+        <Button Name="btnEncrypt" Content="Encrypt" HorizontalAlignment="Left" Margin="649,261,0,0" VerticalAlignment="Top" Height="36" Width="81" RenderTransformOrigin="0.396,-0.143" Click="btnEncrypt_Click" FontWeight="Bold"/>
+        <Button Name="btnDecrypt" Content="Decrypt" HorizontalAlignment="Left" Margin="649,338,0,0" VerticalAlignment="Top" Height="36" Width="81" FontWeight="Bold" Click="btnDecrypt_Click"/>
+        <Button Name="btnGenerateKey" Content="Generate Key" HorizontalAlignment="Left" Margin="602,451,0,0" VerticalAlignment="Top" Height="40" Width="147" Click="btnGenerateKey_Click" FontWeight="Bold"/>
+        <Button Name="btnOpenFile" Content="Open" HorizontalAlignment="Left" Margin="649,102,0,0" VerticalAlignment="Top" Height="36" Width="80" Click="btnOpenFile_Click" FontWeight="Bold"/>
 
-        <TextBox BorderThickness="2" BorderBrush="Black" Background="LightGray" Name="txtEditor" HorizontalAlignment="Left" Margin="100,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="450" Height="113"/>
+        <TextBox BorderThickness="2" BorderBrush="Black" Background="LightGray" Name="txtEditor" HorizontalAlignment="Left" Margin="93,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="450" Height="113"/>
 
-        <Button Name="btnSaveFile" Content="Save" HorizontalAlignment="Left" Margin="656,150,0,0" VerticalAlignment="Top" Height="36" Width="81" RenderTransformOrigin="0.396,-0.143" Click="btnSaveFile_Click" FontWeight="Bold"/>
-        <TextBox BorderThickness="2" BorderBrush="Black" Background="LightGray" Name="txtResult" HorizontalAlignment="Left" Margin="100,225,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="450" Height="113"/>
-        <TextBox BorderThickness="2" BorderBrush="Black" Background="LightGray" Name="txtPrivateKey" HorizontalAlignment="Left" Margin="100,390,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="210" Height="147"/>
-        <TextBox BorderThickness="2" BorderBrush="Black" Background="LightGray" Name="txtPublicKey" HorizontalAlignment="Left" Margin="343,390,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="207" Height="147"/>
-        <Label Content="Private Key" HorizontalAlignment="Left" Margin="153,359,0,0" VerticalAlignment="Top" Width="104" FontWeight="Bold"/>
-        <Label Content="Public Key" HorizontalAlignment="Center" Margin="0,364,0,0" VerticalAlignment="Top" Width="104" FontWeight="Bold"/>
-        <Button Content="Save Private Key" HorizontalAlignment="Left" Margin="156,557,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.253,0.203" Height="47" Width="98" FontWeight="Bold"/>
-        <Button Content="Save Public Key" HorizontalAlignment="Left" Margin="398,557,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.253,0.203" Height="47" Width="98" FontWeight="Bold"/>
+        <Button Name="btnReset" Content="Reset" HorizontalAlignment="Left" Margin="649,179,0,0" VerticalAlignment="Top" Height="36" Width="81" RenderTransformOrigin="0.396,-0.143" Click="btnReset_Click" FontWeight="Bold"/>
+        <TextBox IsReadOnly="True" BorderThickness="2" BorderBrush="Black" Background="LightGray" Name="txtResult" HorizontalAlignment="Left" Margin="93,261,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="450" Height="113"/>
+        <TextBox IsReadOnly="True" BorderThickness="2" BorderBrush="Black" Background="LightGray" Name="txtPrivateKey" HorizontalAlignment="Left" Margin="93,436,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="210" Height="147"/>
+        <TextBox IsReadOnly="True" BorderThickness="2" BorderBrush="Black" Background="LightGray" Name="txtPublicKey" HorizontalAlignment="Left" Margin="336,436,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="210" Height="147"/>
+        <Label Content="Private Key" HorizontalAlignment="Left" Margin="93,405,0,0" VerticalAlignment="Top" Width="104" FontWeight="Bold" RenderTransformOrigin="0.119,0.629"/>
+        <Label Content="Public Key" HorizontalAlignment="Left" Margin="336,405,0,0" VerticalAlignment="Top" Width="104" FontWeight="Bold"/>
+        <Button x:Name="btnSaveKeys" Content="Save Keys" HorizontalAlignment="Left" Margin="602,509,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.253,0.203" Height="42" Width="147" FontWeight="Bold" Click="btnSaveKeys_Click"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,20,0,0" Text="Mã hóa và giải mã RSA" TextWrapping="Wrap" VerticalAlignment="Top" FontWeight="Bold" FontSize="24"/>
+        <Label Content="Message" HorizontalAlignment="Left" Margin="93,76,0,0" VerticalAlignment="Top" Width="104" FontWeight="Bold" RenderTransformOrigin="0.119,0.629"/>
+        <Label Content="Result" HorizontalAlignment="Left" Margin="93,230,0,0" VerticalAlignment="Top" Width="104" FontWeight="Bold" RenderTransformOrigin="0.119,0.629"/>
     </Grid>
 </Window>
